@@ -1,6 +1,6 @@
 {
   "name": "@andoshin11/storybook-vue3",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/client/index.js",
   "author": "shin-ando <shinglish11@gmail.com>",
   "license": "MIT",
