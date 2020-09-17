@@ -4,6 +4,14 @@
   "main": "lib/client/index.js",
   "author": "shin-ando <shinglish11@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andoshin11/storybook-vue3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andoshin11/storybook-vue3/issues"
+  },
+  "homepage": "https://github.com/andoshin11/storybook-vue3#readme",
   "publishConfig": {
     "access": "public"
   },
