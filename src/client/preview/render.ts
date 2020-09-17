@@ -1,21 +1,20 @@
+import { Args } from '@storybook/addons';
 import dedent from 'ts-dedent';
-import { createApp, h } from 'vue';
-import { RenderContext } from './types';
+import { createApp, h, shallowRef, reactive } from 'vue';
+import { RenderContext, StoryFnVueReturnType } from './types';
 
-export const COMPONENT = 'STORYBOOK_COMPONENT';
-export const VALUES = 'STORYBOOK_VALUES';
+let mounted = false
+
+const activeComponent = shallowRef<StoryFnVueReturnType | null>(null)
+export const propsContainer = reactive<{ props: Args }>({ props: {} });
 
 const root = createApp({
-  data() {
-    return {
-      [COMPONENT]: undefined,
-      [VALUES]: {},
-    };
-  },
-  render() {
-    const children = this[COMPONENT] ? [h(this[COMPONENT])] : undefined;
-    return h('div', { attrs: { id: 'root' } }, children);
-  },
+  setup() {
+    return () => {
+      if (!activeComponent.value) throw new Error();
+      return h(activeComponent.value, propsContainer.props);
+    }
+  }
 });
 
 export default function render({
@@ -25,16 +24,13 @@ export default function render({
   args,
   showMain,
   showError,
-  showException,
-  forceRender,
+  showException
 }: RenderContext) {
   // @ts-ignore
   root.config.errorHandler = showException
 
-  // FIXME: move this into root[COMPONENT] = element
-  // once we get rid of knobs so we don't have to re-create
-  // a new component each time
-  const element = storyFn();
+  const element: StoryFnVueReturnType = storyFn();
+  propsContainer.props = args
 
   if (!element) {
     showError({
@@ -49,19 +45,9 @@ export default function render({
 
   showMain();
 
-  // at component creation || refresh by HMR or switching stories
-  // @ts-ignore
-  if (!root[COMPONENT] || !forceRender) {
-    // @ts-ignore
-    root[COMPONENT] = element;
+  activeComponent.value = element
+  if (!mounted) {
+    root.mount('#root');
+    mounted = true;
   }
-
-  // @ts-ignore https://github.com/storybookjs/storrybook/pull/7578#discussion_r307986139
-  root[VALUES] = { ...element.options[VALUES], ...args };
-
-  
-  // if (!root.$el) {
-  //   root.$mount('#root');
-  // }
-  root.mount('#root')
 }

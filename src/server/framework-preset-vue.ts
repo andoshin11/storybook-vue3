@@ -33,7 +33,7 @@ export function webpack(config: Configuration) {
       extensions: [...((config.resolve || {}).extensions || []), '.vue'],
       alias: {
         ...(config.resolve || {}).alias,
-        vue$: require.resolve('vue/dist/vue.esm-browser.js'),
+        vue$: require.resolve('vue/dist/vue.esm-bundler.js'),
       },
     },
   };

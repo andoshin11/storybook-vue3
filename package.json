@@ -1,9 +1,12 @@
 {
-  "name": "storybook-vue3",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "shin-ando <shin.ando@linecorp.com>",
+  "name": "@andoshin11/storybook-vue3",
+  "version": "0.0.0",
+  "main": "lib/client/index.js",
+  "author": "shin-ando <shinglish11@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "build-storybook": "./bin/build.js",
     "start-storybook": "./bin/index.js",
@@ -11,11 +14,14 @@
   },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "prepare": "tsc"
   },
   "devDependencies": {
     "@storybook/core": "^6.1.0-alpha.9",
     "@types/node": "^14.10.1",
+    "@vue/compiler-sfc": "^3.0.0-0",
+    "ts-loader": "^8.0.3",
     "typescript": "^4.0.2",
     "vue": "^3.0.0-0",
     "vue-loader": "^16.0.0-beta.7",
@@ -23,10 +29,13 @@
   },
   "peerDependencies": {
     "@storybook/core": "^6.1.0-alpha.9",
-    "vue-loader": "^16.0.0-beta.7",
-    "vue": "^3.0.0-0"
+    "@vue/compiler-sfc": "^3.0.0-0",
+    "ts-loader": "^8.0.3",
+    "vue": "^3.0.0-0",
+    "vue-loader": "^16.0.0-beta.7"
   },
   "dependencies": {
-    "global": "^4.4.0"
+    "global": "^4.4.0",
+    "ts-dedent": "^1.1.1"
   }
 }

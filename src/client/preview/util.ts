@@ -1,4 +1,4 @@
-import { defineComponent, DefineComponent } from 'vue';
+import { Component } from 'vue';
 
 function getType(fn: Function) {
   const match = fn && fn.toString().match(/^\s*function (\w+)/);
@@ -15,8 +15,8 @@ function resolveDefault({ type, default: def }: any) {
   return def;
 }
 
-export function extractProps(component: DefineComponent) {
-  component.props
+export function extractProps(component?: Component) {
+  if (!component) return {}
   // @ts-ignore this options business seems not good according to the types
   return Object.entries(component.props || {})
     .map(([name, prop]) => ({ [name]: resolveDefault(prop) }))
