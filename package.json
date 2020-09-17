@@ -32,7 +32,7 @@
     "ts-loader": "^8.0.3",
     "typescript": "^4.0.2",
     "vue": "^3.0.0-0",
-    "vue-loader": "^16.0.0-beta.7",
+    "vue-loader-v16": "npm:vue-loader@^16.0.0-beta.7",
     "webpack": "^4.44.1"
   },
   "peerDependencies": {
@@ -40,7 +40,7 @@
     "@vue/compiler-sfc": "^3.0.0-0",
     "ts-loader": "^8.0.3",
     "vue": "^3.0.0-0",
-    "vue-loader": "^16.0.0-beta.7"
+    "vue-loader-v16": "npm:vue-loader@^16.0.0-beta.7"
   },
   "dependencies": {
     "global": "^4.4.0",

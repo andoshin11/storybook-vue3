@@ -1,4 +1,4 @@
-import { VueLoaderPlugin } from 'vue-loader'
+import { VueLoaderPlugin } from 'vue-loader-v16'
 import { Configuration } from 'webpack';
 
 export function webpack(config: Configuration) {
@@ -11,7 +11,7 @@ export function webpack(config: Configuration) {
         ...((config.module || { rules: [] }).rules || []),
         {
           test: /\.vue$/,
-          loader: require.resolve('vue-loader'),
+          loader: require.resolve('vue-loader-v16'),
           options: {},
         },
         {
