@@ -4,7 +4,7 @@ import { Configuration } from 'webpack';
 export function webpack(config: Configuration) {
   return {
     ...config,
-    plugins: [...(config.plugins || []), new VueLoaderPlugin()],
+    plugins: [...(config.plugins || []), new VueLoaderPlugin() as any],
     module: {
       ...config.module,
       rules: [
