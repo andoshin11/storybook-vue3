@@ -12,6 +12,15 @@ So you can develop UI components in isolation without worrying about app specifi
 This library is not well tested on production environment, so you may face a lot of bugs.
 Please let me know through GitHub Issues when you see those.
 
+## Peer Dependencies
+It's strongly recommended to preinstall these versions of libraris before setup your project.
+
+- @storybook/core@^6.1.0-alpha.9,
+- @vue/compiler-sfc@^3.0.0-0,
+- ts-loader@^8.0.3,
+- vue@^3.0.0-0,
+- vue-loader@^16.0.0-beta.7
+
 ## Getting Started
 
 ```sh
