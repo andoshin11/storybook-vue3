@@ -1,4 +1,4 @@
-# Storybook for Vue 3
+# @andoshin11/storybook-vue3 ![npm (scoped)](https://img.shields.io/npm/v/@andoshin11/storybook-vue3) ![GitHub](https://img.shields.io/github/license/andoshin11/storybook-vue3)
 
 Storybook for Vue 3 is an unofficial UI development environment for your Vue 3 components.
 With it, you can visualize different states of your UI components and develop them interactively.
